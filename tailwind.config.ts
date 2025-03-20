@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				rkv: {
+					blue: '#1A73E8',
+					'light-blue': '#E8F0FE',
+					green: '#34A853',
+					'light-green': '#E6F4EA',
+					white: '#FFFFFF',
+					'off-white': '#F8F9FA',
+					gray: '#F1F3F4'
 				}
 			},
 			borderRadius: {
@@ -70,25 +80,45 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				fadeIn: {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				fadeOut: {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' }
+				},
+				slideUp: {
+					'0%': { transform: 'translateY(20px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				slideDown: {
+					'0%': { transform: 'translateY(-20px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				fadeIn: 'fadeIn 0.5s ease-in-out',
+				fadeOut: 'fadeOut 0.5s ease-in-out',
+				slideUp: 'slideUp 0.5s ease-in-out',
+				slideDown: 'slideDown 0.5s ease-in-out'
+			},
+			backdropFilter: {
+				'none': 'none',
+				'blur': 'blur(20px)'
+			},
+			boxShadow: {
+				'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
+				'card': '0 2px 10px rgba(0, 0, 0, 0.05)'
 			}
 		}
 	},
