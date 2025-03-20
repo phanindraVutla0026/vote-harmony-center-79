@@ -7,13 +7,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
-import { Vote, User, UserRound, Mail, Phone, ShieldCheck } from 'lucide-react';
+import { Vote, User, UserRound, ShieldCheck, Phone, Info } from 'lucide-react';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     aadhar: '',
     phone: ''
   });
@@ -31,7 +30,7 @@ const Login: React.FC = () => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.name || !formData.email || !formData.aadhar || !formData.phone) {
+    if (!formData.name || !formData.aadhar || !formData.phone) {
       toast({
         title: "Validation Error",
         description: "Please fill in all fields",
@@ -67,14 +66,14 @@ const Login: React.FC = () => {
       setLoading(false);
       toast({
         title: "Login Successful",
-        description: "Welcome to the RGUKT RK Valley Voting System",
+        description: "Welcome to the Digital Voting Platform",
       });
       navigate('/');
     }, 1500);
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-rkv-off-white to-white p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-orange-50 to-green-50 p-4">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -82,11 +81,13 @@ const Login: React.FC = () => {
         className="w-full max-w-md"
       >
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-rkv-blue mb-4">
-            <Vote className="text-white" size={32} />
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900">RGUKT RK Valley</h1>
-          <p className="text-gray-600 mt-1">Electronic Voting System</p>
+          <img 
+            src="/lovable-uploads/7e9862c1-b964-4d23-ba20-b8a41967eeb5.png" 
+            alt="Election Commission of India" 
+            className="h-16 mx-auto mb-4"
+          />
+          <h1 className="text-2xl font-bold text-gray-900">Digital Voting Platform</h1>
+          <p className="text-gray-600 mt-1">Election Commission of India</p>
         </div>
 
         <motion.div
@@ -94,13 +95,13 @@ const Login: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <Card className="p-6 shadow-md border-0">
+          <Card className="p-6 shadow-md border-0 bg-white/80 backdrop-blur-sm">
             <h2 className="text-xl font-semibold mb-6 text-center">Login to Your Account</h2>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name" className="flex items-center">
-                  <UserRound size={16} className="mr-2 text-rkv-blue" />
+                  <UserRound size={16} className="mr-2 text-blue-600" />
                   Full Name
                 </Label>
                 <Input
@@ -109,29 +110,13 @@ const Login: React.FC = () => {
                   placeholder="Enter your full name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="transition-all focus-visible:ring-rkv-blue"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="email" className="flex items-center">
-                  <Mail size={16} className="mr-2 text-rkv-blue" />
-                  Email Address
-                </Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="transition-all focus-visible:ring-rkv-blue"
+                  className="transition-all focus-visible:ring-blue-500"
                 />
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="aadhar" className="flex items-center">
-                  <ShieldCheck size={16} className="mr-2 text-rkv-blue" />
+                  <ShieldCheck size={16} className="mr-2 text-blue-600" />
                   Aadhar Number
                 </Label>
                 <Input
@@ -140,14 +125,14 @@ const Login: React.FC = () => {
                   placeholder="Enter your 12-digit Aadhar number"
                   value={formData.aadhar}
                   onChange={handleChange}
-                  className="transition-all focus-visible:ring-rkv-blue"
+                  className="transition-all focus-visible:ring-blue-500"
                   maxLength={12}
                 />
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="phone" className="flex items-center">
-                  <Phone size={16} className="mr-2 text-rkv-blue" />
+                  <Phone size={16} className="mr-2 text-blue-600" />
                   Phone Number
                 </Label>
                 <Input
@@ -156,19 +141,19 @@ const Login: React.FC = () => {
                   placeholder="Enter your 10-digit phone number"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="transition-all focus-visible:ring-rkv-blue"
+                  className="transition-all focus-visible:ring-blue-500"
                   maxLength={10}
                 />
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-rkv-blue hover:bg-rkv-blue/90 transition-colors"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-colors"
                 disabled={loading}
               >
                 {loading ? (
                   <div className="flex items-center">
-                    <span className="h-5 w-5 block rounded-full border-4 border-t-rkv-blue border-white animate-spin mr-2"></span>
+                    <span className="h-5 w-5 block rounded-full border-4 border-t-white border-white/30 animate-spin mr-2"></span>
                     <span>Logging in...</span>
                   </div>
                 ) : 'Login'}
@@ -176,8 +161,12 @@ const Login: React.FC = () => {
             </form>
             
             <div className="mt-6 pt-4 border-t border-gray-100">
+              <div className="flex items-center justify-center mb-3 text-sm text-blue-600">
+                <Info size={14} className="mr-1" />
+                <span>Need help? Call our toll-free number: 1800-111-950</span>
+              </div>
               <p className="text-xs text-center text-gray-500">
-                By logging in, you agree to the Terms of Service and Privacy Policy of the RGUKT RK Valley Voting System.
+                By logging in, you agree to the Terms of Service and Privacy Policy of the Digital Voting Platform.
               </p>
             </div>
           </Card>
@@ -188,7 +177,7 @@ const Login: React.FC = () => {
             Official Electronic Voting Platform
           </p>
           <p className="text-xs text-gray-500 mt-1">
-            © {new Date().getFullYear()} RGUKT RK Valley
+            © {new Date().getFullYear()} Election Commission of India
           </p>
         </div>
       </motion.div>

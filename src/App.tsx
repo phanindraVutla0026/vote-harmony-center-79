@@ -11,6 +11,7 @@ import CurrentVoting from "./pages/CurrentVoting";
 import PastVoting from "./pages/PastVoting";
 import FutureVoting from "./pages/FutureVoting";
 import NotFound from "./pages/NotFound";
+import Complaints from "./pages/Complaints";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/current-voting" element={<CurrentVoting />} />
             <Route path="/past-voting" element={<PastVoting />} />
             <Route path="/future-voting" element={<FutureVoting />} />
+            <Route path="/complaints" element={<Complaints />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
