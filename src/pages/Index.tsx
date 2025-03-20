@@ -66,7 +66,7 @@ const Index: React.FC = () => {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
-                  className="relative w-20 h-20 mx-auto mb-5"
+                  className="relative w-40 h-10 mx-auto mb-5"
                 >
                   <img 
                     src="/lovable-uploads/7e9862c1-b964-4d23-ba20-b8a41967eeb5.png" 
